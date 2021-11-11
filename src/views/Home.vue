@@ -1,28 +1,31 @@
 <template>
     <div>
-        <Search />
+        <Navbar />
+        <!-- <Search /> -->
         <candle-stick />
     </div>
 </template>
 
 <script>
 import CandleStick from '../components/CandleStick.vue'
-import Search from '../components/Search.vue'
+import Navbar from '../components/Navbar.vue'
+// import Search from '../components/Search.vue'
 export default {
     data() {
         return {
-            apiData: null,
+            // apiData: null,
             timeType: 'DAILY',
             // timeType: 'WEEKLY',
             // timeType: 'MONTHLY'
         }
     },
     mounted() {
-        this.$store.dispatch('fetchApiData', this.timeType);
+        // this.$store.dispatch('fetchApiData', this.timeType);
     },
     components: {
         CandleStick,
-        Search
+        Navbar,
+        // Search
     }
 }
 </script>

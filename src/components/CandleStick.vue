@@ -1,18 +1,28 @@
 <template>
   <div>
+    <time-series />
     <div class="chart-container" ref="chart"></div>
   </div>
 </template>
 
 <script>
 import * as d3 from 'd3'
+import TimeSeries from './TimeSeries.vue'
 export default {
   watch: {
     '$store.state.apiData': function() {
-      // arrange xTicks upto timeSeriesType state
       let timeSeriesType = this.$store.getters.getTimeSeriesType;
+
+      // delete all svg charts before append new one
+      for(let i = 0; i < this.$refs.chart.children.length; i++) {
+        this.$refs.chart.children[i].remove();
+      }
+      // starting chart configuration
       this.chartCaller(timeSeriesType);
     }
+  },
+  components: {
+    TimeSeries
   },
   methods: {
     chartCaller(timeSeriesType) {
