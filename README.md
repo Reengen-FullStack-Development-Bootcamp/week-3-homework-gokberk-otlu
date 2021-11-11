@@ -12,7 +12,6 @@ Stock Market Application built in VueJs.
 
 - HTML
 - CSS
-- [BootstrapVue](https://bootstrap-vue.org/)
 - [VueJs](https://vuejs.org/)
 - [VueRouter](https://router.vuejs.org/)
 - [Vuetify](https://vuetifyjs.com/en/)
