@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-container>
     <time-series />
     <div class="chart-container" ref="chart"></div>
-  </div>
+  </v-container>
 </template>
 
 <script>

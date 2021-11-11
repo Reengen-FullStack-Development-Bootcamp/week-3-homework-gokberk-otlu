@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <v-app>
         <Navbar />
         <!-- <Search /> -->
         <candle-stick />
-    </div>
+    </v-app>
 </template>
 
 <script>

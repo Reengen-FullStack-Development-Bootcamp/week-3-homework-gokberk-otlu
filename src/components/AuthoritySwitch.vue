@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <v-sheet class="p-5">
         <v-switch
         v-model="switchAuthority"
         inset
-        :label="`switchAuthority: ${switchAuthority.toString()}`">
+        color="#12b4c7"
+        :label="switchAuthority ? 'Admin' : 'User'">
         </v-switch>
-        <!-- <p>asdfasdf</p> -->
-    </div>
+    </v-sheet>
 </template>
 
 <script>

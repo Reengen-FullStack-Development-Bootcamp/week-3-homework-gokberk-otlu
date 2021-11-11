@@ -1,5 +1,5 @@
 <template>
-    <v-btn-toggle v-model="timeSeriesText" tile color="deep-purple accent-3" group>
+    <v-btn-toggle v-model="timeSeriesText" tile color="deep-purple accent-3" group class="mb-10">
         <v-btn value="DAILY">
             DAILY
         </v-btn>
