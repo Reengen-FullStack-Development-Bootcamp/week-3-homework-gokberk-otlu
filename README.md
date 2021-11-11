@@ -2,7 +2,7 @@
 
 Stock Market Application built in VueJs.
 
-# [Live Demo]()
+# [Live Demo](https://stock-market-app-week-3.netlify.app/)
 
 ## Stock Market Application
 
