@@ -1,4 +1,4 @@
-# 138 Reengen Full-Stack Bootcamp | Week-4 Homework
+# 138 Reengen Full-Stack Bootcamp | Week-3 Homework
 
 Stock Market Application built in VueJs.
 
