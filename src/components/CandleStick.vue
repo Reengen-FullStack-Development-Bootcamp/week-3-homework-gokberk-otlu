@@ -33,7 +33,7 @@ export default {
         low: (d) => Number(d["3. low"]),
         close: (d) => Number(d["4. close"]),
         yLabel: "↑ Price ($)",
-        width: 900,
+        width: 1000,
         height: 430,
         xDomain: this.$store.state.apiData.map(item => new Date(item["6. date"])),
         yDomain: [this.$store.getters.getLowest, this.$store.getters.getHighest],
@@ -67,7 +67,7 @@ export default {
       marginBottom = 30, // bottom margin, in pixels
       marginLeft = 40, // left margin, in pixels
       width = 640, // outer width, in pixels
-      height = 400, // outer height, in pixels
+      height = 440, // outer height, in pixels
       xDomain, // array of x-values (defaults to every weekday)
       xRange = [marginLeft, width - marginRight], // [left, right]
       xPadding = 0.2,
@@ -158,7 +158,7 @@ export default {
         .selectAll("g")
         .data(I)
         .join("g")
-        .attr("transform", i => `translate(${xScale(X[i]) + 3},0)`);
+        .attr("transform", i => `translate(${xScale(X[i]) + 4},0)`);
 
       g.append("line")
         .attr("y1", i => yScale(Yl[i]))
