@@ -181,6 +181,15 @@ export default {
   .chart-container {
     text-align: center;
   }
+
+  .chart-container svg {
+    box-shadow: 2px 3px 5px 2px #ccc;
+    border-radius: 5px;
+    padding: 10px 10px;
+    border: 1px solid #333;
+    box-sizing: content-box;
+  }
+
   text {
     font-size: .6rem;
   }
