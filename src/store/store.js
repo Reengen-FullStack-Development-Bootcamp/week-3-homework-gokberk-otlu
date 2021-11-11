@@ -13,7 +13,8 @@ export const store = new Vuex.Store({
         matches: [],
         selectedMatchItem: '',
         timeSeries: 'DAILY',
-        logRecords: []
+        logRecords: [],
+        authority: false
     },
     getters: {
         getApiData(state) {
@@ -36,6 +37,9 @@ export const store = new Vuex.Store({
         },
         getLogRecords(state) {
             return state.logRecords
+        },
+        getAuthority(state) {
+            return state.authority
         }
     },
     mutations: {
@@ -62,6 +66,9 @@ export const store = new Vuex.Store({
         },
         setLogRecords(state, payload) {
             state.logRecords.push(payload);
+        },
+        setAuthority(state, payload) {
+            state.authority = payload;
         }
     },
     actions: {

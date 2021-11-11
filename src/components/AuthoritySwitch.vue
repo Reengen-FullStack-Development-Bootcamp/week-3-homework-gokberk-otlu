@@ -1,20 +1,25 @@
 <template>
     <v-sheet class="p-5">
         <v-switch
-        v-model="switchAuthority"
+        v-model="getAuthority"
         inset
         color="#12b4c7"
-        :label="switchAuthority ? 'Admin' : 'User'">
+        :label="getAuthority ? 'Admin' : 'User'">
         </v-switch>
     </v-sheet>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            switchAuthority: false
+    computed: {
+        getAuthority: {
+            get() {
+                return this.$store.getters.getAuthority;
+            },
+            set(value) {
+                this.$store.commit('setAuthority', value)
+            }
         }
-    }
+    },
 }
 </script>

@@ -26,7 +26,14 @@ export default {
     },
     methods: {
         goToLogsPage() {
-            this.$router.push({ path: '/logs' });
+            if(this.$store.getters.getAuthority) {
+                this.$router.push({ path: '/logs' });
+            } else {
+                let newRouteItem = {
+                    name: `Unauthorized logs request - ${new Date().toLocaleString("en-US")}`
+                };
+                this.$store.commit('setLogRecords', newRouteItem);
+            }
         }
     }
 }
