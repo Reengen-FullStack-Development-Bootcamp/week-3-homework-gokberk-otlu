@@ -4,7 +4,12 @@
             <v-col class="col-md-6">
                 <Search />
             </v-col>
-            <v-col class="offset-md-4">
+            <v-col class="offset-md-3 d-flex align-center">
+                <v-btn class="mr-4"
+                elevation="2"
+                @click="goToLogsPage">
+                    Logs
+                </v-btn>
                 <AuthoritySwitch />
             </v-col>
         </v-row>
@@ -18,6 +23,11 @@ export default {
     components: {
         Search,
         AuthoritySwitch
+    },
+    methods: {
+        goToLogsPage() {
+            this.$router.push({ path: '/logs' });
+        }
     }
 }
 </script>

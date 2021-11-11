@@ -11,7 +11,9 @@ export const store = new Vuex.Store({
         lowest: null,
         timeSeriesType: null,
         matches: [],
-        selectedMatchItem: ''
+        selectedMatchItem: '',
+        timeSeries: 'DAILY',
+        logRecords: []
     },
     getters: {
         getApiData(state) {
@@ -28,6 +30,12 @@ export const store = new Vuex.Store({
         },
         getMatches(state) {
             return state.matches;
+        },
+        getTimeSeries(state) {
+            return state.timeSeries;
+        },
+        getLogRecords(state) {
+            return state.logRecords
         }
     },
     mutations: {
@@ -48,15 +56,21 @@ export const store = new Vuex.Store({
         },
         setSelectedMatchItem(state, payload) {
             state.selectedMatchItem = payload;
+        },
+        setTimeSeries(state, payload) {
+            state.timeSeries = payload;
+        },
+        setLogRecords(state, payload) {
+            state.logRecords.push(payload);
         }
     },
     actions: {
-        async fetchApiData({ commit, state }, payload) {
+        async fetchApiData({ commit, state }) {
             // prevent request if selectedMatchItem is null
             if(state.selectedMatchItem && state.selectedMatchItem.length >= 3) {
                 var method_key = {method: null, key: null};
 
-                switch(payload) {
+                switch(state.timeSeries) {
                     case 'DAILY':
                         method_key = {method: 'TIME_SERIES_DAILY', key: 'Time Series (Daily)'};
                         commit('setTimeSeriesType', 'DAILY');
@@ -79,7 +93,6 @@ export const store = new Vuex.Store({
                     url: 'https://alpha-vantage.p.rapidapi.com/query',
                     params: {
                         function: method_key.method,
-                        // symbol: 'MSFT',
                         symbol: state.selectedMatchItem,
                         datatype: 'json',
                         output_size: 'compact'
@@ -123,7 +136,6 @@ export const store = new Vuex.Store({
               };
               
               axios.request(options).then((response) => {
-                  console.log(response.data.bestMatches.map(match => match['1. symbol']));
                   commit('setMatches', response.data.bestMatches.map(match => match['1. symbol']));
               }).catch(function (error) {
                   console.error(error);

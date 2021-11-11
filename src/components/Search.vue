@@ -38,14 +38,12 @@
                 // to prevent apiSearchData dispatch when any item selected
                 this.selectionEvent = true;
                 this.setSelectedMatchItem(this.searchVal);
-                this.$store.dispatch('fetchApiData', 'DAILY');
-                console.log("SELECTION");
+                this.$store.dispatch('fetchApiData');
             },
             searchInput() {
                 // dispatch action to get matches
                 if (!this.selectionEvent && this.searchInput && this.searchInput.length >= 3) {
                     this.$store.dispatch('apiSearchData', this.searchInput);
-                    console.log('DISPATCH');
                 }
                 this.selectionEvent = false;
             }

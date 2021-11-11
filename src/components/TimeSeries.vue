@@ -1,5 +1,5 @@
 <template>
-    <v-btn-toggle v-model="timeSeriesText" tile color="deep-purple accent-3" group class="mb-10">
+    <v-btn-toggle v-model="getTimeSeries" tile color="deep-purple accent-3" group class="mb-10">
         <v-btn value="DAILY">
             DAILY
         </v-btn>
@@ -22,9 +22,20 @@ export default {
         }
     },
     watch: {
-        timeSeriesText() {
-            this.$store.dispatch('fetchApiData', this.timeSeriesText);
+        '$store.state.timeSeries': function() {
+            this.$store.dispatch('fetchApiData');
         }
-    }
+    },
+    computed: {
+        getTimeSeries: {
+            get() {
+                return this.$store.getters.getTimeSeries;
+            },
+            set(value) {
+                this.$store.commit('setTimeSeries', value)
+            }
+        }
+    },
+    
 }
 </script>

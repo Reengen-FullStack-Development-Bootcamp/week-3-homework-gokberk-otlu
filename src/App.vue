@@ -1,16 +1,24 @@
 <template>
   <div id="app">
-    <Home />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Home from './views/Home.vue'
 
 export default {
   name: 'App',
-  components: {
-    Home
+  watch: {
+    $route(to, from) {
+      let newRouteItem = {
+        name: `Route Change - ${new Date().toLocaleString("en-US")}`,
+        children: [
+          { name: `From : ${from.fullPath}` },
+          { name: `To : ${to.fullPath}` },
+        ],
+      };
+      this.$store.commit('setLogRecords', newRouteItem);
+    },
   }
 }
 </script>
